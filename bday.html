@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Birthday Vicky 🎂</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffe4e1, #ffd1dc);
+      font-family: 'Pacifico', cursive;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      padding: 20px;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      color: #ff4081;
+      text-shadow: 2px 2px #fff0f5;
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: #880e4f;
+      margin-top: 20px;
+    }
+
+    .emoji {
+      font-size: 2.5rem;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .floating-hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff4081;
+      font-size: 1.5rem;
+      animation: rise 8s linear infinite;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      p { font-size: 1.1rem; }
+      .emoji { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="floating-hearts" id="hearts-container"></div>
+
+  <div class="container">
+    <h1>🎉 Happy Birthday Vicky 🎉</h1>
+    <div class="emoji">🎂🎂💖🎂💖🎂</div>
+    <p>
+      Thank you for coming into my life, Vicky. <br>
+      You make my world brighter and more beautiful every day. <br>
+      Wishing you the happiest birthday ever! 🎈<br>
+      I love you! 💘
+    </p>
+    <div class="emoji">💖💖💖</div>
+  </div>
+
+  <script>
+    // Create floating hearts
+    const container = document.getElementById("hearts-container");
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 5 + 5) + "s";
+      container.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 10000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
